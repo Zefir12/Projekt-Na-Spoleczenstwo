@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=2]
+
+[node name="EnergyGrid" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+antialiased = true
+invert_border = 7.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -136, -88 )
+polygon = PoolVector2Array( 104, 56, 168, 56, 168, 120, 104, 120 )
+
+[node name="consumers" type="Node2D" parent="."]
+
+[node name="producers" type="Node2D" parent="."]
+
+[node name="storages" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+antialiased = true
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

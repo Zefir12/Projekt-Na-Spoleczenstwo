@@ -1,0 +1,779 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menu_bar.gd" type="Script" id=1]
+[ext_resource path="res://graphics/rext.png" type="Texture" id=2]
+[ext_resource path="res://NinePatchRect.gd" type="Script" id=3]
+[ext_resource path="res://Button.gd" type="Script" id=4]
+
+[node name="Menu_bar" type="Control"]
+anchor_left = -0.000921756
+anchor_right = 0.999078
+anchor_bottom = 1.0
+margin_left = 0.943909
+margin_right = 0.943848
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pnl" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -223.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbx" type="VBoxContainer" parent="pnl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_part" type="PanelContainer" parent="pnl/vbx"]
+margin_right = 223.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="pnl/vbx/label_part"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 216.0
+margin_bottom = 31.0
+align = 1
+editable = false
+placeholder_text = "Nothing Selected"
+
+[node name="building_part" type="PanelContainer" parent="pnl/vbx"]
+margin_top = 36.0
+margin_right = 223.0
+margin_bottom = 98.0
+
+[node name="vbx" type="VBoxContainer" parent="pnl/vbx/building_part"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 216.0
+margin_bottom = 55.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pnl/vbx/building_part/vbx"]
+margin_left = 51.0
+margin_right = 158.0
+margin_bottom = 24.0
+size_flags_horizontal = 4
+
+[node name="build_temps" type="OptionButton" parent="pnl/vbx/building_part/vbx/HBoxContainer"]
+margin_right = 79.0
+margin_bottom = 24.0
+size_flags_horizontal = 4
+size_flags_vertical = 5
+text = "Nothing"
+align = 1
+items = [ "Nothing", null, false, 0, null ]
+selected = 0
+
+[node name="build_mode" type="CheckBox" parent="pnl/vbx/building_part/vbx/HBoxContainer"]
+margin_left = 83.0
+margin_right = 107.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="pnl/vbx/building_part/vbx"]
+margin_top = 28.0
+margin_right = 209.0
+margin_bottom = 48.0
+alignment = 1
+
+[node name="create_template" type="Button" parent="pnl/vbx/building_part/vbx/HBoxContainer2"]
+margin_left = 32.0
+margin_right = 177.0
+margin_bottom = 20.0
+text = "Create new template"
+
+[node name="stats_part" type="PanelContainer" parent="pnl/vbx"]
+margin_top = 96.0
+margin_right = 223.0
+margin_bottom = 232.0
+
+[node name="vbx" type="VBoxContainer" parent="pnl/vbx/stats_part"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 216.0
+margin_bottom = 129.0
+
+[node name="numbers" type="GridContainer" parent="pnl/vbx/stats_part/vbx"]
+margin_right = 209.0
+margin_bottom = 50.0
+columns = 2
+
+[node name="Label" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_right = 114.0
+margin_bottom = 14.0
+text = "Total consumers: "
+
+[node name="total_consumers" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_left = 118.0
+margin_right = 126.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Label2" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_top = 18.0
+margin_right = 114.0
+margin_bottom = 32.0
+text = "Total producers: "
+
+[node name="total_producers" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_left = 118.0
+margin_top = 18.0
+margin_right = 126.0
+margin_bottom = 32.0
+text = "0"
+
+[node name="Label3" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_top = 36.0
+margin_right = 114.0
+margin_bottom = 50.0
+text = "Total storages: "
+
+[node name="total_storages" type="Label" parent="pnl/vbx/stats_part/vbx/numbers"]
+margin_left = 118.0
+margin_top = 36.0
+margin_right = 126.0
+margin_bottom = 50.0
+text = "0"
+
+[node name="energy" type="GridContainer" parent="pnl/vbx/stats_part/vbx"]
+margin_top = 54.0
+margin_right = 209.0
+margin_bottom = 122.0
+columns = 2
+
+[node name="Label" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_right = 157.0
+margin_bottom = 14.0
+text = "Total energy net:"
+
+[node name="energy_net" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_left = 161.0
+margin_right = 169.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="label" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_top = 18.0
+margin_right = 157.0
+margin_bottom = 32.0
+text = "Total energy produced: "
+
+[node name="produced" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_left = 161.0
+margin_top = 18.0
+margin_right = 169.0
+margin_bottom = 32.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label2" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_top = 36.0
+margin_right = 157.0
+margin_bottom = 50.0
+text = "Total energy consumed: "
+
+[node name="consumed" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_left = 161.0
+margin_top = 36.0
+margin_right = 169.0
+margin_bottom = 50.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label3" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_top = 54.0
+margin_right = 157.0
+margin_bottom = 68.0
+text = "Total energy stored: "
+
+[node name="stored" type="Label" parent="pnl/vbx/stats_part/vbx/energy"]
+margin_left = 161.0
+margin_top = 54.0
+margin_right = 169.0
+margin_bottom = 68.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data_part" type="PanelContainer" parent="pnl/vbx"]
+margin_top = 230.0
+margin_right = 223.0
+margin_bottom = 288.0
+
+[node name="vbx" type="VBoxContainer" parent="pnl/vbx/data_part"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 216.0
+margin_bottom = 51.0
+
+[node name="hbx" type="HBoxContainer" parent="pnl/vbx/data_part/vbx"]
+margin_right = 209.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="record_data" type="Button" parent="pnl/vbx/data_part/vbx/hbx"]
+margin_left = 9.0
+margin_right = 147.0
+margin_bottom = 20.0
+text = "Start recording Data"
+
+[node name="reset_button" type="Button" parent="pnl/vbx/data_part/vbx/hbx"]
+margin_left = 151.0
+margin_right = 199.0
+margin_bottom = 20.0
+text = "Reset"
+
+[node name="hbx2" type="HBoxContainer" parent="pnl/vbx/data_part/vbx"]
+margin_top = 24.0
+margin_right = 209.0
+margin_bottom = 44.0
+alignment = 1
+
+[node name="save_data" type="Button" parent="pnl/vbx/data_part/vbx/hbx2"]
+margin_left = 27.0
+margin_right = 101.0
+margin_bottom = 20.0
+text = "Save Data"
+
+[node name="copy_data" type="Button" parent="pnl/vbx/data_part/vbx/hbx2"]
+margin_left = 105.0
+margin_right = 181.0
+margin_bottom = 20.0
+text = "Copy Data"
+
+[node name="time_panel" type="Panel" parent="."]
+margin_right = 337.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbx" type="VBoxContainer" parent="time_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 6.0
+margin_right = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hbx" type="HBoxContainer" parent="time_panel/vbx"]
+margin_right = 328.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="time_panel/vbx/hbx"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Time: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="current time" type="Label" parent="time_panel/vbx/hbx"]
+margin_left = 44.0
+margin_right = 44.0
+margin_bottom = 14.0
+
+[node name="hbx2" type="HBoxContainer" parent="time_panel/vbx"]
+margin_top = 18.0
+margin_right = 328.0
+margin_bottom = 34.0
+
+[node name="Label2" type="Label" parent="time_panel/vbx/hbx2"]
+margin_top = 1.0
+margin_right = 75.0
+margin_bottom = 15.0
+text = "Time speed"
+
+[node name="HSlider" type="HSlider" parent="time_panel/vbx/hbx2"]
+margin_left = 79.0
+margin_right = 316.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 1.0
+value = 1.0
+rounded = true
+tick_count = 20
+
+[node name="Label" type="Label" parent="time_panel/vbx/hbx2"]
+margin_left = 320.0
+margin_top = 1.0
+margin_right = 328.0
+margin_bottom = 15.0
+text = "1"
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 234.141
+margin_top = 176.93
+margin_right = 690.141
+margin_bottom = 427.93
+mouse_filter = 1
+window_title = "Create new template"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="WindowDialog/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 449.0
+margin_bottom = 244.0
+mouse_filter = 1
+
+[node name="Consumer" type="Tabs" parent="WindowDialog/PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Consumer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer"]
+margin_right = 430.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer"]
+margin_left = 108.0
+margin_top = 5.0
+margin_right = 260.0
+margin_bottom = 19.0
+text = "Consumption Base Rate"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer"]
+margin_left = 264.0
+margin_right = 322.0
+margin_bottom = 24.0
+text = "0"
+align = 1
+placeholder_text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 430.0
+margin_bottom = 48.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer2"]
+margin_left = 117.0
+margin_top = 3.0
+margin_right = 236.0
+margin_bottom = 17.0
+text = "Consumption Type"
+
+[node name="LineEdit" type="OptionButton" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer2"]
+margin_left = 240.0
+margin_right = 312.0
+margin_bottom = 20.0
+text = "Item 0"
+selected = 0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 430.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer4"]
+margin_left = 163.0
+margin_top = 5.0
+margin_right = 205.0
+margin_bottom = 19.0
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer4"]
+margin_left = 209.0
+margin_right = 267.0
+margin_bottom = 24.0
+align = 1
+placeholder_text = "-"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 430.0
+margin_bottom = 100.0
+alignment = 1
+
+[node name="LineEdit" type="Button" parent="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer3"]
+margin_left = 123.0
+margin_right = 306.0
+margin_bottom = 20.0
+text = "Create consumer template"
+
+[node name="Producer" type="Tabs" parent="WindowDialog/PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Producer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer"]
+margin_right = 434.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer"]
+margin_left = 113.0
+margin_top = 5.0
+margin_right = 258.0
+margin_bottom = 19.0
+text = "Energy Producing Rate:"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer"]
+margin_left = 262.0
+margin_right = 320.0
+margin_bottom = 24.0
+text = "0"
+align = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 434.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer3"]
+margin_left = 164.0
+margin_top = 5.0
+margin_right = 208.0
+margin_bottom = 19.0
+text = "name: "
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer3"]
+margin_left = 212.0
+margin_right = 270.0
+margin_bottom = 24.0
+text = "-"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 434.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="create_producer" type="Button" parent="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer2"]
+margin_left = 160.0
+margin_right = 274.0
+margin_bottom = 20.0
+text = "Create Producer"
+
+[node name="Storage" type="Tabs" parent="WindowDialog/PanelContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_right = 434.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer"]
+margin_left = 141.0
+margin_top = 5.0
+margin_right = 231.0
+margin_bottom = 19.0
+text = "Max capacity: "
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer"]
+margin_left = 235.0
+margin_right = 293.0
+margin_bottom = 24.0
+text = "100000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 28.0
+margin_right = 434.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer2"]
+margin_left = 135.0
+margin_top = 5.0
+margin_right = 236.0
+margin_bottom = 19.0
+text = "Passive losses: "
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer2"]
+margin_left = 240.0
+margin_right = 298.0
+margin_bottom = 24.0
+text = "0.1"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 56.0
+margin_right = 434.0
+margin_bottom = 80.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer3"]
+margin_left = 134.0
+margin_top = 5.0
+margin_right = 238.0
+margin_bottom = 19.0
+text = "Releasing speed"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer3"]
+margin_left = 242.0
+margin_right = 300.0
+margin_bottom = 24.0
+text = "15"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 84.0
+margin_right = 434.0
+margin_bottom = 108.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer4"]
+margin_left = 142.0
+margin_top = 5.0
+margin_right = 229.0
+margin_bottom = 19.0
+text = "Storing speed"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer4"]
+margin_left = 233.0
+margin_right = 291.0
+margin_bottom = 24.0
+text = "15"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 112.0
+margin_right = 434.0
+margin_bottom = 136.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer5"]
+margin_left = 107.0
+margin_top = 5.0
+margin_right = 197.0
+margin_bottom = 19.0
+text = "Output losses"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer5"]
+margin_left = 201.0
+margin_right = 259.0
+margin_bottom = 24.0
+text = "0.7"
+
+[node name="Label2" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer5"]
+margin_left = 263.0
+margin_top = 5.0
+margin_right = 327.0
+margin_bottom = 19.0
+text = " 1 = 100%"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 140.0
+margin_right = 434.0
+margin_bottom = 164.0
+alignment = 1
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer6"]
+margin_left = 165.0
+margin_top = 5.0
+margin_right = 207.0
+margin_bottom = 19.0
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer6"]
+margin_left = 211.0
+margin_right = 269.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer"]
+margin_top = 168.0
+margin_right = 434.0
+margin_bottom = 188.0
+alignment = 1
+
+[node name="create_storage" type="Button" parent="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer7"]
+margin_left = 160.0
+margin_right = 274.0
+margin_bottom = 20.0
+text = "Create producer"
+
+[node name="Consumption Type" type="Tabs" parent="WindowDialog/PanelContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+mouse_filter = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -43.0
+mouse_filter = 1
+texture = ExtResource( 2 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type/NinePatchRect"]
+points = PoolVector2Array( -0.458191, 200.456, 13.7, 200, 29.746, 200, 45.792, 200, 62.781, 200, 79.771, 200, 96.761, 200, 111.863, 200, 125.077, 200, 145.842, 200, 160.944, 200, 176.046, 200, 196.812, 200, 209.082, 200, 229.847, 200, 242.117, 200, 258.163, 200, 277.041, 200, 289.311, 200, 308.189, 200, 325.178, 200, 339.337, 200, 357.27, 200, 373.316, 200, 390.306, 200.456 )
+width = 2.0
+
+[node name="Line2D" type="Line2D" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+points = PoolVector2Array( -0.458191, 100.406, 390.306, 99.4619 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+anchor_left = 0.916
+anchor_top = 0.5
+anchor_right = 0.916
+anchor_bottom = 0.5
+margin_left = 0.185547
+margin_top = -6.55612
+margin_right = 40.1855
+margin_bottom = 7.44388
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+anchor_left = 0.916
+anchor_top = 0.5
+anchor_right = 0.916
+anchor_bottom = 0.5
+margin_left = -1.70221
+margin_top = -103.775
+margin_right = 38.2978
+margin_bottom = -89.7752
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+anchor_left = 0.916
+anchor_top = 0.5
+anchor_right = 0.916
+anchor_bottom = 0.5
+margin_left = -2.64606
+margin_top = 89.719
+margin_right = 37.3539
+margin_bottom = 103.719
+text = "-1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type"]
+margin_left = 394.539
+margin_top = 35.8672
+margin_right = 435.539
+margin_bottom = 55.8672
+text = "Save"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button"]
+visible = true
+margin_left = -271.0
+margin_top = 3.0
+margin_right = -92.0
+margin_bottom = 51.0
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button/WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.9897
+margin_top = -12.0
+margin_right = 37.0103
+margin_bottom = 12.0
+align = 1
+placeholder_text = "Input Name"
+
+[node name="ok button" type="Button" parent="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button/WindowDialog"]
+margin_left = 135.918
+margin_top = 14.1581
+margin_right = 165.918
+margin_bottom = 34.1581
+text = "Ok"
+[connection signal="pressed" from="pnl/vbx/building_part/vbx/HBoxContainer2/create_template" to="." method="_on_create_template_pressed"]
+[connection signal="pressed" from="pnl/vbx/data_part/vbx/hbx/record_data" to="." method="_on_record_data_pressed"]
+[connection signal="pressed" from="pnl/vbx/data_part/vbx/hbx/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="pnl/vbx/data_part/vbx/hbx2/save_data" to="." method="_on_save_data_pressed"]
+[connection signal="pressed" from="pnl/vbx/data_part/vbx/hbx2/copy_data" to="." method="_on_copy_data_pressed"]
+[connection signal="about_to_show" from="WindowDialog" to="." method="_on_WindowDialog_about_to_show"]
+[connection signal="pressed" from="WindowDialog/PanelContainer/TabContainer/Consumer/VBoxContainer/HBoxContainer3/LineEdit" to="." method="_on_LineEdit_pressed"]
+[connection signal="pressed" from="WindowDialog/PanelContainer/TabContainer/Producer/VBoxContainer/HBoxContainer2/create_producer" to="." method="_on_create_producer_pressed"]
+[connection signal="pressed" from="WindowDialog/PanelContainer/TabContainer/Storage/VBoxContainer/HBoxContainer7/create_storage" to="." method="_on_create_storage_pressed"]
+[connection signal="gui_input" from="WindowDialog/PanelContainer/TabContainer/Consumption Type/NinePatchRect" to="WindowDialog/PanelContainer/TabContainer/Consumption Type/NinePatchRect" method="_on_NinePatchRect_gui_input"]
+[connection signal="pressed" from="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button" to="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="WindowDialog/PanelContainer/TabContainer/Consumption Type/Button/WindowDialog/ok button" to="." method="_on_ok_button_pressed"]

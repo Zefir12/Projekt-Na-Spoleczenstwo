@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="menu" type="PopupMenu"]
+margin_right = 93.0
+margin_bottom = 88.0
+items = [ "Elektrownia", null, 0, false, false, 0, 0, null, "", false, "Odbiorca", null, 0, false, false, 1, 0, null, "", false, "Magazyn", null, 0, false, false, 2, 0, null, "", false, "Grid", null, 0, false, false, 3, 0, null, "", false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}

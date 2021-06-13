@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://EnergySystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://EnergyGrid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://Menu_bar.tscn" type="PackedScene" id=9]
+
+[node name="root" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergySystem" parent="." instance=ExtResource( 3 )]
+
+[node name="EnergyGrid5" parent="EnergySystem/grids" index="0" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid5/Area2D" index="0"]
+polygon = PoolVector2Array( -56, 16, -240, -208, 88, -376, 616, -232, 456, 40, 456, 144, 344, 0, 152, -48, 32, 200 )
+
+[node name="EnergyGrid" parent="EnergySystem/grids" index="1" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid/Area2D" index="0"]
+polygon = PoolVector2Array( 456, 40, 752, 8, 1224, 136, 752, 528, 456, 144 )
+
+[node name="EnergyGrid2" parent="EnergySystem/grids" index="2" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid2/Area2D" index="0"]
+position = Vector2( -144, -88 )
+polygon = PoolVector2Array( 762.284, 784.468, 754.284, 528.468, 1232, 136, 1360, 24, 2020.11, 25.6362, 2291.95, 614.614, 1642.56, 1052.57, 2178.68, 1528.28, 170.118, 1535.83, 58.2838, 1304.47 )
+
+[node name="EnergyGrid3" parent="EnergySystem/grids" index="3" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid3/Area2D" index="0"]
+polygon = PoolVector2Array( -256, 80, -56, 16, 32, 200, 72, 520, 56, 1304, -336, 1112, -736, 1024 )
+
+[node name="EnergyGrid4" parent="EnergySystem/grids" index="4" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid4/Area2D" index="0"]
+polygon = PoolVector2Array( 72, 520, 32, 200, 152, -48, 344, 0, 456, 144, 752, 528, 760, 784, 56, 1304 )
+
+[node name="EnergyGrid6" parent="EnergySystem/grids" index="5" instance=ExtResource( 4 )]
+
+[node name="CollisionPolygon2D" parent="EnergySystem/grids/EnergyGrid6/Area2D" index="0"]
+polygon = PoolVector2Array( 616, -232, 744, -424, 1104, -744, 2152, -568, 2008, 24, 1352, 24, 1224, 136, 752, 8, 456, 40 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
+zoom = Vector2( 8, 8 )
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="menu" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_bottom = 70.0
+items = [ "Elektrownia", null, 0, false, false, 0, 0, null, "", false, "Odbiorca", null, 0, false, false, 1, 0, null, "", false, "Magazyn", null, 0, false, false, 2, 0, null, "", false ]
+
+[node name="Menu_bar" parent="CanvasLayer" instance=ExtResource( 9 )]
+[connection signal="selected" from="EnergySystem" to="." method="_on_EnergySystem_selected"]
+[connection signal="id_pressed" from="CanvasLayer/menu" to="." method="_on_menu_id_pressed"]
+
+[editable path="EnergySystem"]
+
+[editable path="EnergySystem/grids/EnergyGrid5"]
+
+[editable path="EnergySystem/grids/EnergyGrid"]
+
+[editable path="EnergySystem/grids/EnergyGrid2"]
+
+[editable path="EnergySystem/grids/EnergyGrid3"]
+
+[editable path="EnergySystem/grids/EnergyGrid4"]
+
+[editable path="EnergySystem/grids/EnergyGrid6"]
